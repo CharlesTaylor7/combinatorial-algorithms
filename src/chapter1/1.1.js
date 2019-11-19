@@ -46,7 +46,6 @@ function* generateCircuits(adjLists, path) {
     wu(adjLists[current])
       .some(adjacent => adjacent === path[0])
   ) {
-    path.push(path[0]);
     yield path;
     return;
   } else {
