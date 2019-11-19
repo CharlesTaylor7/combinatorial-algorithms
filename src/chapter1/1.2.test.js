@@ -10,9 +10,9 @@ describe('isLatinSquare', () => {
     expect(isLatinSquare([[1, 2], [1, 2]]))
       .toBe(false)
   })
-  test('throws if the is array is not square', () => {
-    expect(() => isLatinSquare([[1, 2, 3], [1, 2]]))
-      .toThrow()
+  test('rejects non square array', () => {
+    expect(isLatinSquare([[1, 2, 3], [1, 2]]))
+      .toBe(false)
   })
   test('the empty square is a latin square', () => {
     expect(isLatinSquare([]))
@@ -22,15 +22,15 @@ describe('isLatinSquare', () => {
     expect(isLatinSquare([[1]]))
       .toBe(true)
   })
-  test('ensures the element set is restricted', () => {
+  test('the element set is restricted', () => {
     expect(isLatinSquare([[3,-1], [2,'a']]))
-      .toThrow()
+      .toBe(false)
   })
 })
 
-describe('TDtoLatinSquare', () => {
+describe('transversalDesignToLatinSquare', () => {
   test('it works for the example', () => {
     expect(transversalDesignToLatinSquare(exampleTD))
-      .toEqual([[1, 2, 3], [2, 3, 1], [3,2,1]])
+      .toEqual([[3, 2, 1], [2, 1, 3], [1, 3, 2]])
   })
 })

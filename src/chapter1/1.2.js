@@ -27,7 +27,7 @@ export const isLatinSquare = array => {
   // check uniqueness in rows
   for (let row of array) {
     // check squareness
-    if (row.length !== n) throw new Error('array is not square');
+    if (row.length !== n) return false;
     if ((new Set(row)).size !== n) return false;
   }
   // check uniqueness in columns
@@ -48,7 +48,8 @@ export const isLatinSquare = array => {
 
 export const transversalDesignToLatinSquare = td => {
   const { elements, partition, blocks } = td;
-  const square = Array.from(elements, () => []);
+  const n = elements.length / 3;
+  const square = Array.from({ length: 3 }, () => []);
   const rows = partition[0];
   const cols = partition[1];
   const syms = partition[2];
@@ -64,7 +65,7 @@ export const transversalDesignToLatinSquare = td => {
 
     square[rowIndex][colIndex] = symIndex + 1;
   }
-
+  console.log(square)
   if (!isLatinSquare(square)) {
     throw new Error("not a latin square");
   }
