@@ -1,5 +1,5 @@
 import wu from 'wu'
-import { isLatinSquare } from './1.2'
+import { isLatinSquare, transversalDesignToLatinSquare, exampleTD } from './1.2'
 
 describe('isLatinSquare', () => {
   test('identifies latin squares', () => {
@@ -25,5 +25,12 @@ describe('isLatinSquare', () => {
   test('ensures the element set is restricted', () => {
     expect(isLatinSquare([[3,-1], [2,'a']]))
       .toThrow()
+  })
+})
+
+describe('TDtoLatinSquare', () => {
+  test('it works for the example', () => {
+    expect(transversalDesignToLatinSquare(exampleTD))
+      .toEqual([[1, 2, 3], [2, 3, 1], [3,2,1]])
   })
 })
