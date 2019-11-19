@@ -11,6 +11,6 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "babel-polyfill": "^6.26.0"
   }
 }
