@@ -12,7 +12,5 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "ramda": "^0.26.1",
-    "wu": "^2.1.0"
   }
 }
