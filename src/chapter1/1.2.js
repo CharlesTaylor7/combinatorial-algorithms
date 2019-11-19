@@ -20,23 +20,27 @@ export const exampleTD = {
   ],
 }
 
-function* column(i, array) {
-  const n = array.length;
-  for (let j = 0; j < array.length; j++) {
-    const row = array[j];
-    if (row.length !== n) throw new Error('array is not square');
-    yield row[i];
-  }
-}
-
 export const isLatinSquare = array => {
   const n = array.length;
+
+  // check uniqueness in rows
   for (let row of array) {
+    // check squareness
+    if (row.length !== n) throw new Error('array is not square');
     if ((new Set(row)).size !== n) return false;
   }
+  // check uniqueness in columns
   for (let i = 0; i < n; i++) {
-    const col = column(i, array);
+    const col = wu(array).map(row => row[i]);
     if ((new Set(col)).size !== n) return false;
+  }
+
+  // check the elements are a fixed set of numbers from 1 to n
+  const set = new Set(Array.from({ length: n }, (_, i) => i + 1));
+  for (let row of array) {
+    for (let cell of row) {
+      if (!set.has(cell)) return false;
+    }
   }
   return true;
 }
