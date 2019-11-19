@@ -15,9 +15,8 @@ test('getAdjacencyLists', () => {
   ]);
 })
 
-test('o', () => {
+test('hamiltonianCircuits', () => {
   const circuits = wu.toArray(hamiltonianCircuits(cubeGraph));
-  console.log(circuits);
 
   expect(circuits.length)
     .toBe(96);
