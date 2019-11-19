@@ -1,4 +1,5 @@
 import "babel-polyfill"
+import wu from 'wu'
 
 export const cubeGraph = {
   vertices: Array.from({ length: 8 }, (_, i) => i),
@@ -29,11 +30,29 @@ export const getAdjacencyLists = graph => {
   return lookup;
 }
 
-// export const diff
+const last = array => array[array.length - 1];
 
-function* hamiltonianCircuits(adjLists, path) {
+export const hamiltonianCircuits = (graph) => {
+  const lists = getAdjacencyLists(graph);
+  return wu(graph.vertices)
+    .concatMap(node => generateCircuits(lists, [node]))
+};
+
+function* generateCircuits(adjLists, path) {
   const n = adjLists.length;
-  if (path.length === n && path[0] === path[n]) {
-    yield path;
+  const current = last(path);
+  if (
+    path.length === n &&
+    wu(adjLists[current])
+      .some(adjacent => adjacent === current)
+  ) {
+    yield path.push(adjacent);
+  } else {
+    for (let adjacent of adjLists[current]) {
+      if (wu(path).every(node => node !== adjacent)) {
+        const newPath = [...path, adjacent];
+        yield* generateCircuits(adjLists, newPath);
+      }
+    }
   }
 }
