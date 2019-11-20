@@ -1,31 +1,32 @@
-import wu from 'wu';
-
-function swap(A, i, j) {
-  return {
-    ...A,
-    [i]: A[j],
-    [j]: A[i],
-  }
-}
+import "babel-polyfill"
+import wu from 'wu'
 
 /** yields all permutations of order n */
 export function permutations(n) {
-  return permute(n, Array.from({ length: n }, (_, i) => i));
+  const iterable = permute(n, Array.from({ length: n }, (_, i) => i + 1));
+  return wu(iterable).map(array => array.join(''));
 }
 
 function* permute(k, A) {
   if (k <= 1) {
-    yield A;
+    yield Array.from(A);
   }
   else {
     yield* permute(k - 1, A);
-    for (let i = 0; i < k - 1; i++) {
+
+    for (let i = 0; i < k-1; i++) {
       const m = k - 1;
       const n = k % 2 === 0 ? i : 0;
-      A = swap(A, m, n);
-      yield* permute(k - 1, A)
+      swap(A, m, n);
+      yield* permute(k - 1, A);
     }
   }
+}
+
+function swap(A, i, j) {
+  const temp = A[i];
+  A[i] = A[j];
+  A[j] = temp;
 }
 
 /**
