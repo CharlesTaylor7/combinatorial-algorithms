@@ -20,11 +20,9 @@ function* permute(k, A) {
   else {
     yield* permute(k - 1, A);
     for (let i = 0; i < k - 1; i++) {
-      A = swap(
-        A,
-        k - 1,
-        k % 2 === 0 ? i : 0
-      );
+      const m = k - 1;
+      const n = k % 2 === 0 ? i : 0;
+      A = swap(A, m, n);
       yield* permute(k - 1, A)
     }
   }
