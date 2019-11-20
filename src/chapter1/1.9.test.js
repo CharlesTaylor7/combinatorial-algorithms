@@ -1,7 +1,10 @@
-import { permutations } from "./1.9"
+import { permutations, N } from "./1.9"
 import wu from 'wu'
 
-const uniqueCount = iterable => wu(iterable).unique().reduce(total => total + 1, 0);
+const uniqueCount = iterable =>
+  wu(iterable)
+  .unique()
+  .reduce(total => total + 1, 0);
 
 describe('permutations', () => {
   test('permutations 0', () => {
@@ -28,5 +31,12 @@ describe('permutations', () => {
     const count = uniqueCount(permutations(5))
     expect(count)
       .toBe(120)
+  })
+})
+
+describe('N(A,i)', () => {
+  test('N(321, 2)', () => {
+    expect(N('321', 2))
+      .toBe(2);
   })
 })

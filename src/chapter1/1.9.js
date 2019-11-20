@@ -30,12 +30,28 @@ function swap(A, i, j) {
 }
 
 /**
- * @param {array} A a permutation of [0,1..(n-1)]
+ * Counts number of swaps in an insertion sort
+ * @param {string} A a permutation of [0,1..(n-1)]
  * @param {number} i an integer: 0 <= i < n
  */
-function N(A, i) {
-  return wu(A)
-  .take(i - 1)
-  .filter(x => x > A[i])
-  .reduce(0, acc => acc + 1)
+export function N(A, i) {
+  return wu(A.split(''))
+    .map(x => Number(x))
+    .take(i)
+    .filter(x => x > A[i])
+    .reduce(acc => acc + 1, 0)
 }
+
+const solution = () => {
+  for(let p of permutations(4)) {
+    for (let i = 1; i < 4; i++) {
+      console.log(
+        "p = " + p + "\n" +
+        "i = " + i + "\n" +
+        "N = " + N(p, i)
+      );
+    }
+  }
+}
+
+solution();
