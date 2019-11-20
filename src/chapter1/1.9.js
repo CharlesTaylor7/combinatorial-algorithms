@@ -3,13 +3,13 @@ import wu from 'wu'
 
 /** yields all permutations of order n */
 export function permutations(n) {
-  const iterable = permute(n, Array.from({ length: n }, (_, i) => i + 1));
-  return wu(iterable).map(array => array.join(''));
+  return permute(n, Array.from({ length: n }, (_, i) => i + 1));
 }
 
 function* permute(k, A) {
   if (k <= 1) {
-    yield Array.from(A);
+    // copies the array & puts it into a more compact readable representation
+    yield A.join('');
   }
   else {
     yield* permute(k - 1, A);
