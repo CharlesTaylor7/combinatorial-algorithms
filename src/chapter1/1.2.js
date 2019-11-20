@@ -49,7 +49,7 @@ export const isLatinSquare = array => {
 export const transversalDesignToLatinSquare = td => {
   const { elements, partition, blocks } = td;
   const n = elements.length / 3;
-  const square = Array.from({ length: 3 }, () => []);
+  const square = Array.from({ length: n }, () => []);
   const rows = partition[0];
   const cols = partition[1];
   const syms = partition[2];
