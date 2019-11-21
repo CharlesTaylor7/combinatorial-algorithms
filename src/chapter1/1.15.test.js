@@ -12,5 +12,5 @@ test('knapsackOptimal', () => {
 })
 
 test('knapsackOptimal', () => {
-  expect(knapsackOptimize(problemInstance)).toEqual([0, 1, 0, 0, 1, 0])
+  expect(knapsackOptimize(problemInstance)).toEqual([1, 1, 0, 1, 0, 1])
 })
