@@ -23,7 +23,13 @@ export const toBits = (iterable) => {
   return S;
 }
 
-export const toBitSet = (iterable, { n = 20, beta = 10 }) => {
+/**
+ * Represent a set of numbers, less than n, as a compact array of unsigned integers.
+ * @param {Iterable<number>} iterable
+ * @param {number} n an upper bound on the universe that our subset is a part of
+ * @param {number} beta the VM word size, 52 becauses that's a safe bound to stay within the SAFE integer range of JS.
+ */
+export const toBitSet = (iterable, { n = 100, beta = 52 }) => {
   const omega = Math.ceil(n / beta);
   const A = Array.from({ length: omega }, () => 0);
   for (let x of iterable) {
