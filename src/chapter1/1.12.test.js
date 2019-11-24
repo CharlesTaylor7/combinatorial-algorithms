@@ -1,15 +1,15 @@
-import { primesUnder, toBitArray, toBitSet, look, mask, setOrder } from "./1.12"
+import { primesUnder, toBits, toBitSet, look, mask, setOrder, soln } from "./1.12"
 
 test('primesUpTo', () => {
   expect(Array.from(primesUnder(32)))
     .toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31])
 })
 
-test('toBitArray', () => {
-  expect(toBitArray([1,3]))
+test('toBits', () => {
+  expect(toBits([1,3]))
     .toBe(10);
 
-  expect(toBitArray([0,4]))
+  expect(toBits([0,4]))
     .toBe(17);
 })
 
@@ -30,10 +30,14 @@ test('mask', () => {
   expect(mask(3)).toBe(7)
 })
 
-test('setOrder', () => {
+test('setOrder bit set with 1 word', () => {
   expect(setOrder([7])).toBe(3);
 })
 
-test('setOrder', () => {
+test('setOrder, bit set with multiple words', () => {
   expect(setOrder([127, 33])).toBe(9);
+})
+
+test('soln', () => {
+  expect(soln()).toBe(11);
 })

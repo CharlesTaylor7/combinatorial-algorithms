@@ -15,7 +15,7 @@ export function* primesUnder(n) {
   }
 }
 
-export const toBitArray = (iterable) => {
+export const toBits = (iterable) => {
   let S = 0;
   for (let n of iterable) {
     S = S | (1 << n);
@@ -26,9 +26,9 @@ export const toBitArray = (iterable) => {
 export const toBitSet = (iterable, { n = 20, beta = 10 }) => {
   const omega = Math.ceil(n / beta);
   const A = Array.from({ length: omega }, () => 0);
-  for (let n of iterable) {
-    const i = Math.floor(n / beta);
-    const j = n % beta;
+  for (let x of iterable) {
+    const i = Math.floor(x / beta);
+    const j = x % beta;
     A[i] = A[i] | (1 << j)
   }
 
@@ -76,5 +76,13 @@ export function setOrder(A) {
     }
   }
 
+  return order;
+}
+
+export function soln() {
+  const primesUnder32 = primesUnder(32);
+  // omega == n / beta == 8;
+  const A = toBitSet(primesUnder32, { n: 40, beta: 5 });
+  const order = setOrder(A);
   return order;
 }
