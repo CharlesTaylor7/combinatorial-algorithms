@@ -23,9 +23,7 @@ export const toBitArray = (iterable) => {
   return S;
 }
 
-export const toBitSet = (iterable, { n, beta }) => {
-  const n = 20;
-  const beta = 10;
+export const toBitSet = (iterable, { n = 20, beta = 10 }) => {
   const omega = Math.ceil(n / beta);
   const A = Array.from({ length: omega }, () => 0);
   for (let n of iterable) {
