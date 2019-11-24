@@ -1,4 +1,4 @@
-import { primesUnder, toBitArray, toBitSet } from "./1.12"
+import { primesUnder, toBitArray, toBitSet, look, mask, setOrder } from "./1.12"
 
 test('primesUpTo', () => {
   expect(Array.from(primesUnder(32)))
@@ -19,4 +19,21 @@ test('toBitSet', () => {
 
   expect(toBitSet([10], { n: 20, beta: 10}))
     .toEqual([0, 1])
+})
+
+test('look', () => {
+  expect(look(3))
+    .toEqual([0, 1, 1, 2, 1, 2, 2, 3])
+})
+
+test('mask', () => {
+  expect(mask(3)).toBe(7)
+})
+
+test('setOrder', () => {
+  expect(setOrder([7])).toBe(3);
+})
+
+test('setOrder', () => {
+  expect(setOrder([127, 33])).toBe(9);
 })

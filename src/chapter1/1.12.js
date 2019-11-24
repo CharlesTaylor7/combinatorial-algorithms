@@ -35,6 +35,46 @@ export const toBitSet = (iterable, { n = 20, beta = 10 }) => {
   return A;
 }
 
-export function setOrder(u, A) {
+const count = n => {
+  let total = 0;
+  while (n !== 0) {
+    total += n & 1
+    n = n >> 1
+  }
+  return total;
+}
 
+export const look = (alpha) => Array.from(
+    { length: 1 << alpha },
+    (_, k) => count(k)
+  );
+
+export const mask = (alpha) => {
+  if (alpha < 1) throw new Error("Cannot construct a mask with less than 1 digit")
+
+  let m = 1;
+  for (let i = 0; i < alpha - 1; i++) {
+    m = (m << 1) | 1
+  }
+  return m;
+}
+
+const defaultAlpha = 4;
+const defaultLook = look(defaultAlpha);
+const defaultMask = mask(defaultAlpha);
+
+export function setOrder(A) {
+  const alpha = defaultAlpha;
+  const look = defaultLook;
+  const mask = defaultMask;
+
+  let order = 0;
+  for (let x of A) {
+    while (x !== 0) {
+      order += look[x & mask]
+      x = x >> alpha
+    }
+  }
+
+  return order;
 }
