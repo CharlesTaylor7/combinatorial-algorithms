@@ -1,4 +1,4 @@
-import { binaryReflect, nthGrayCode } from './2.2'
+import { binaryReflect, nthGrayCode, allGrayCodes } from './2.2'
 
 test('binaryReflect', () => {
   expect(binaryReflect(['0', '1']))
@@ -22,4 +22,8 @@ test('G(3)', () => {
     '000', '001', '011', '010',
     '110', '111', '101', '100',
   ])
+})
+
+test('all gray codes of order 4', () => {
+  expect(allGrayCodes(4)).toMatchSnapshot();
 })
