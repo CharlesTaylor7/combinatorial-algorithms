@@ -1,11 +1,12 @@
 import "babel-polyfill"
 import wu from 'wu'
+import Stack from './stack'
 
 const last = array => array[array.length - 1];
 
 const hamiltonianPaths = (graph) => {
   return wu(graph.vertices)
-    .concatMap(node => generatePaths(graph, [node]))
+    .concatMap(node => generatePaths(graph, Stack.fromArray([node])));
 };
 
 function* generatePaths(graph, path) {
@@ -17,7 +18,7 @@ function* generatePaths(graph, path) {
   } else {
     for (let adjacent of graph.adjacencies(current)) {
       if (wu(path).every(node => node !== adjacent)) {
-        const newPath = [...path, adjacent];
+        const newPath = path.push(adjacent);
         yield* generatePaths(graph, newPath);
       }
     }
