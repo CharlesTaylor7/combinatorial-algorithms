@@ -5,7 +5,7 @@ export const binaryReflectGrayCode = code => [
   ...code.map(x => `${1}${x}`).reverse(),
 ];
 
-export const G = (n) => {
+export const nthGrayCode = (n) => {
   if (n > codes.length) {
     for(let i = codes.length; i <= n; i++) {
       codes.push[binaryReflectGrayCode(codes[i-1])]
