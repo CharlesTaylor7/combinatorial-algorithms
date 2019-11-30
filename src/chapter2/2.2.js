@@ -8,14 +8,16 @@ export const binaryReflect = code => [
 export const nthGrayCode = (() => {
   // memoize old gray codes
   const codes = [['']];
-  return (n => {
-    if (n > codes.length) {
+  const fn = n => {
+    if (n >= codes.length) {
       for(let i = codes.length; i <= n; i++) {
-        codes.push[binaryReflect(codes[i-1])]
+        const prev = codes[i-1];
+        codes.push(binaryReflect(prev))
       }
     }
     return codes[n];
-  })
+  };
+  return fn;
 })()
 
 const nCubeGraph = (n) => ({
