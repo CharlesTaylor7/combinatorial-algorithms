@@ -65,7 +65,6 @@ export const transversalDesignToLatinSquare = td => {
 
     square[rowIndex][colIndex] = symIndex + 1;
   }
-  console.log(square)
   if (!isLatinSquare(square)) {
     throw new Error("not a latin square");
   }

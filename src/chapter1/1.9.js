@@ -53,5 +53,3 @@ const solution = () => {
     }
   }
 }
-
-solution();

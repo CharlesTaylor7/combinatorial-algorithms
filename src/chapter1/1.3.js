@@ -19,7 +19,6 @@ export const makeTraversalDesign = (n) => {
       blocks.push([rows[j], cols[i], syms[symbolIndex]]);
     }
   }
-  console.log(blocks);
 
   const td = { elements, blocks, partition };
   if (!isTraversalDesign(td)) throw new Error('Not a traversal design');
