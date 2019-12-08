@@ -11,12 +11,9 @@ export const graphExample = {
   ],
 }
 
-// kruskals algorithm:
-// loop through edges in ascending weight order
-// take edges which connect disjoint sets
-
 function find(node) {
   while (node.parent !== undefined) {
+    node.parent = node.parent.parent || node.parent;
     node = node.parent;
   }
   return node;
