@@ -15,30 +15,39 @@ export const graphExample = {
 // loop through edges in ascending weight order
 // take edges which connect disjoint sets
 
+function find(node) {
+  while (node.parent !== undefined) {
+    node = node.parent;
+  }
+  return node;
+}
+
+function union(node1, node2) {
+  node2.parent = node1;
+}
+
 function kruskalMST(graph) {
   const { vertices, edges } = graph;
 
   // set of edges.
   const mst = [];
-  const forest = vertices.map(v => [v]);
+  const forest = vertices
+    .map(vertex => ({
+      vertex,
+      rank: 0,
+    }));
 
   // sort edges in ascending order by weight
   edges.sort((e1, e2) => e1.weight - e2.weight);
   for (let edge of edges) {
     const { i, j } = edge;
-    const v1 = vertices[i];
-    const v2 = vertices[j];
+
     // makeshift poor union find.
-    const f1 = forest.findIndex(tree => tree && tree.includes(v1));
-    const f2 = forest.findIndex(tree => tree && tree.includes(v2));
+    const f1 = find(forest[i]);
+    const f2 = find(forest[j]);
     if (f1 !== f2) {
       mst.push(edge);
-      const first = Math.min(f1, f2);
-      const second = Math.max(f1, f2);
-      for (let v of forest[second]) {
-        forest[first].push(v);
-      }
-      delete forest[second];
+      union(f1, f2);
     }
   }
   return { mst, forest };
