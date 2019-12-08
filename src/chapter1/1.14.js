@@ -1,4 +1,3 @@
-import { petersenGraph } from "./1.13";
 import wu from 'wu';
 
 function adjacencyLists(graph) {

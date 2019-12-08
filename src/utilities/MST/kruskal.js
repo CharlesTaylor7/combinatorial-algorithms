@@ -1,15 +1,5 @@
 import 'babel-polyfill'
-import wu from 'wu'
-
-// ToDo: Property testing
-export const graphExample = {
-  vertices: ['A', 'B', 'C'],
-  edges: [
-    { i: 0, j: 1, weight: 3},
-    { i: 1, j: 2, weight: 7},
-    { i: 2, j: 0, weight: 5},
-  ],
-}
+import enumerateCombinations from '@/utilities/enumerateCombinations'
 
 function find(node) {
   while (node.parent !== undefined) {
@@ -54,7 +44,7 @@ function kruskalMST(graph) {
       union(f1, f2);
     }
   }
-  return { mst, forest };
+  return mst;
 }
 
 export default kruskalMST;

@@ -1,4 +1,3 @@
-import wu from 'wu'
 
 /**
  * Solves all knapsack sub problems with dynamic programming

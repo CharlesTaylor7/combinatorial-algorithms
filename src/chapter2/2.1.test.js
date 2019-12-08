@@ -1,4 +1,4 @@
-import { rank, rankSubset, unrankSubset } from "./2.1"
+import { rankSubset, unrankSubset } from "./2.1"
 
 test('rankSubset', () => {
   expect(rankSubset([2, 3, 5, 7, 11, 13], [3, 7, 13]))
