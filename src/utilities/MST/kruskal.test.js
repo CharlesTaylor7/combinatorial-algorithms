@@ -7,8 +7,8 @@ test('kruskal', () => {
       { i: 0, j: 1, weight: 3},
       { i: 2, j: 0, weight: 5},
     ],
-    forest: {
-      0: ['A', 'B', 'C']
-    },
+    forest: [
+      ['A', 'B', 'C'],
+    ],
   })
 })

@@ -29,8 +29,8 @@ function kruskalMST(graph) {
     const v1 = vertices[i];
     const v2 = vertices[j];
     // makeshift poor union find.
-    const f1 = forest.findIndex(tree => tree.includes(v1));
-    const f2 = forest.findIndex(tree => tree.includes(v2));
+    const f1 = forest.findIndex(tree => tree && tree.includes(v1));
+    const f2 = forest.findIndex(tree => tree && tree.includes(v2));
     if (f1 !== f2) {
       mst.push(edge);
       const first = Math.min(f1, f2);
@@ -38,7 +38,7 @@ function kruskalMST(graph) {
       for (let v of forest[second]) {
         forest[first].push(v);
       }
-      // delete forest[second];
+      delete forest[second];
     }
   }
   return { mst, forest };
