@@ -23,7 +23,14 @@ function find(node) {
 }
 
 function union(node1, node2) {
-  node2.parent = node1;
+  if (node1.rank < node2.rank) {
+    node1.parent = node2;
+  } else if (node1.rank > node2.rank) {
+    node2.parent = node1;
+  } else {
+    node1.parent = node2;
+    node2.rank++;
+  }
 }
 
 function kruskalMST(graph) {
