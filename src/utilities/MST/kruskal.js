@@ -1,5 +1,4 @@
 import 'babel-polyfill'
-import enumerateCombinations from '@/utilities/enumerateCombinations'
 
 function find(node) {
   while (node.parent !== undefined) {

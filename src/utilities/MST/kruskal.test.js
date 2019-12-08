@@ -17,14 +17,3 @@ test('kruskal', () => {
     { i: 2, j: 0, weight: 5},
   ])
 })
-
-/**
- * Generate a random graph
- * @param {number} n number of vertices
- * @param {number} r probability of including a given edge between vertices.
- * @param {[number, number]} weightRange range of weights to sample from
- */
-function randomGraph({ n, m, weightRange }) {
-  const vertices = Array.from({ length: n }, (_, i) => `${i + 1}`);
-  const edges = undefined;
-}
