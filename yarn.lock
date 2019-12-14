@@ -2678,6 +2678,16 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jsverify@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/jsverify/-/jsverify-0.8.4.tgz#b914ccc024103d946b503f18ee780ec43febeece"
+  integrity sha512-nUG73Sfi8L4eOkc7pv9sflgAm43v+z6XMuePGVdRoBUxBLJiVcMcf3Xgc4h19eHHF3JwsaagOkUu825UnPBLJw==
+  dependencies:
+    lazy-seq "^1.0.0"
+    rc4 "~0.1.5"
+    trampa "^1.0.0"
+    typify-parser "^1.1.0"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -2706,6 +2716,11 @@ kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
+lazy-seq@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/lazy-seq/-/lazy-seq-1.0.0.tgz#880cb8aab256026382e02f53ec089682a74c5b6a"
+  integrity sha1-iAy4qrJWAmOC4C9T7AiWgqdMW2o=
 
 left-pad@^1.3.0:
   version "1.3.0"
@@ -3360,6 +3375,16 @@ qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
+
+rc4@~0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/rc4/-/rc4-0.1.5.tgz#08c6e04a0168f6eb621c22ab6cb1151bd9f4a64d"
+  integrity sha1-CMbgSgFo9utiHCKrbLEVG9n0pk0=
 
 rc@^1.2.7:
   version "1.2.8"
@@ -4026,6 +4051,11 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+trampa@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/trampa/-/trampa-1.0.1.tgz#b866bc192331f64b4f57a8acf4ab71d0e900b692"
+  integrity sha512-93WeyHNuRggPEsfCe+yHxCgM2s6H3Q8Wmlt6b6ObJL8qc7eZlRaFjQxwTrB+zbvGtlDRnAkMoYYo3+2uH/fEwA==
+
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -4044,6 +4074,11 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
+
+typify-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/typify-parser/-/typify-parser-1.1.0.tgz#ac73bfa5f25343468e2d0f3346c6117bc03d3c99"
+  integrity sha1-rHO/pfJTQ0aOLQ8zRsYRe8A9PJk=
 
 uglify-js@^3.1.4:
   version "3.6.9"

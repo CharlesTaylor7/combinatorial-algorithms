@@ -24,7 +24,7 @@ function kruskalMST(graph) {
 
   // set of edges.
   const mst = [];
-  const forest = vertices
+  const forest = Object.values(vertices)
     .map(vertex => ({
       vertex,
       rank: 0,
