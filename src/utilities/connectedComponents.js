@@ -3,12 +3,14 @@
  * @returns {Graph[]} An array of the connected components.
  */
 export default function connectedComponents({ vertices, edges }) {
-  const vertexKeys = Object.keys(vertices);
+  const vertexKeys = new Set(Object.keys(vertices));
   if (vertexKeys.length === 0) {
     return [];
   }
 
-  const incidentEdges = Object.fromEntries(vertexKeys.map(key => [key, []]));
+  const incidentEdges = Object.fromEntries(
+    Object.keys(vertices)
+      .map(key => [key, []]));
 
   for (let edge of edges) {
     const { i, j } = edge;
@@ -19,7 +21,7 @@ export default function connectedComponents({ vertices, edges }) {
   const components = [];
 
   while(true) {
-    const v = vertexKeys.pop();
+    const v = popFromSet(vertexKeys);
     if (v === undefined) return components;
     let edges = [];
     let componentVertices = { [v]: vertices[v] };
@@ -28,6 +30,7 @@ export default function connectedComponents({ vertices, edges }) {
       const incident = incidentEdges[vertexQueue[i]];
       for (let [vertexKey, edge] of incident) {
         edges.push(edge);
+        vertexKeys.delete(vertexKey);
         if (componentVertices[vertexKey] !== undefined) {
           componentVertices[vertexKey] = vertices[vertexKey]
           queue.push(vertexKey);
@@ -36,4 +39,10 @@ export default function connectedComponents({ vertices, edges }) {
     }
     components.push({ vertices: componentVertices, edges });
   }
+}
+
+function popFromSet(set) {
+  const v = set.values().next().value;
+  set.delete(v);
+  return v;
 }
