@@ -22,9 +22,9 @@ export default function connectedComponents({ vertices, edges }) {
     const v = vertexKeys.pop();
     if (v === undefined) return components;
     let edges = [];
-    let componentVertices = {};
+    let componentVertices = { [v]: vertices[v] };
     const vertexQueue = [v];
-    for (let i = 0; i < queue.length; i++) {
+    for (let i = 0; i < vertexQueue.length; i++) {
       const incident = incidentEdges[vertexQueue[i]];
       for (let [vertexKey, edge] of incident) {
         edges.push(edge);
