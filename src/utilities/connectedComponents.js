@@ -20,13 +20,20 @@ export default function connectedComponents({ vertices, edges }) {
 
   while(true) {
     const v = vertexKeys.pop();
-    let edgeSet = [];
-    let vertexSet = {};
-    const edgeQueue = 
-    while (true) {
-
+    if (v === undefined) return components;
+    let edges = [];
+    let componentVertices = {};
+    const vertexQueue = [v];
+    for (let i = 0; i < queue.length; i++) {
+      const incident = incidentEdges[vertexQueue[i]];
+      for (let [vertexKey, edge] of incident) {
+        edges.push(edge);
+        if (componentVertices[vertexKey] !== undefined) {
+          componentVertices[vertexKey] = vertices[vertexKey]
+          queue.push(vertexKey);
+        }
+      }
     }
+    components.push({ vertices: componentVertices, edges });
   }
-
-  return components;
 }
